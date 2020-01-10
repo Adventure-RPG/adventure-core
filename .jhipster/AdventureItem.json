@@ -1,0 +1,53 @@
+{
+    "name": "AdventureItem",
+    "fields": [
+        {
+            "fieldName": "isEquipment",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "equipmentSlot",
+            "fieldType": "AdventureEquipmentSlot",
+            "fieldValues": "WEAPON1,WEAPON2,ARMOR,HELMET,GLOVES,BOOTS,BELT,NECKLACE,RING1,RING2,CLOAK,BELT_SLOT_1,BELT_SLOT_2,BELT_SLOT_3,BELT_SLOT_4,BELT_SLOT_5,UNEQUIPMENT_ITEM,QUEST_ITEM"
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "weight",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "adventureAttributes",
+            "otherEntityRelationshipName": "adventureItem",
+            "relationshipName": "adventureAttributes",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "adventureInventoryChar",
+            "otherEntityRelationshipName": "adventureItem",
+            "relationshipName": "adventureInventoryChar",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200104143249",
+    "entityTableName": "adventure_item",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": [
+        "adventureUAA",
+        "adventureGateway",
+        "adventureCore"
+    ]
+}

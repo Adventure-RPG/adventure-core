@@ -1,0 +1,31 @@
+#!/usr/bin/expect -f
+set force_conservative 1  ;# set to 1 to force conservative mode even if
+			  ;# script wasn't run conservatively originally
+if {$force_conservative} {
+	set send_slow {1 .1}
+	proc send {ignore arg} {
+		sleep .1
+		exp_send -s -- $arg
+	}
+}
+
+set timeout -1
+spawn jhipster ci-cd
+match_max 100000
+expect -re "pipeline do you want to generate"
+send -- "\r"
+expect -re "Docker"
+send -- "y"
+send -- "\r"
+expect -re "GitLab"
+send -- "\r"
+expect -re "integrations do you want to include"
+#send -- "\r"
+send -- "\033\[B"
+send -- "\033\[B"
+send -- " "
+send -- "\r"
+#force rewrite Jenkinsfile
+send -- "y"
+send -- "\r"
+expect eof

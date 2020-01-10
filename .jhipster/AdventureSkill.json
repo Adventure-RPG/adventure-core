@@ -1,0 +1,46 @@
+{
+    "name": "AdventureSkill",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "position",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "adventureScript",
+            "otherEntityRelationshipName": "adventureSkill",
+            "relationshipName": "adventureScript"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "adventureAccountCharacter",
+            "otherEntityRelationshipName": "adventureSkill",
+            "relationshipName": "adventureAccountCharacter",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20200104143243",
+    "entityTableName": "adventure_skill",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": [
+        "adventureUAA",
+        "adventureGateway",
+        "adventureCore"
+    ]
+}

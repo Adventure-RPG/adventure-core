@@ -1,0 +1,32 @@
+{
+    "name": "AdventureModelOptions",
+    "fields": [
+        {
+            "fieldName": "color",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "adventureRaceOptions",
+            "otherEntityRelationshipName": "adventureModelOptions",
+            "relationshipName": "adventureRaceOptions",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200104143245",
+    "entityTableName": "adventure_model_options",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": [
+        "adventureUAA",
+        "adventureGateway",
+        "adventureCore"
+    ]
+}

@@ -1,0 +1,65 @@
+{
+    "name": "AdventureAccountCharacter",
+    "fields": [
+        {
+            "fieldName": "nickname",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "gender",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "adventureInventoryChar",
+            "otherEntityRelationshipName": "adventureAccountCharacter",
+            "relationshipName": "adventureInventoryChar",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "adventureCharacteristic",
+            "otherEntityRelationshipName": "adventureAccountCharacter",
+            "relationshipName": "adventureCharacteristic",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "adventureRace",
+            "otherEntityRelationshipName": "adventureAccountCharacter",
+            "relationshipName": "adventureRace"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "adventureSkill",
+            "otherEntityRelationshipName": "adventureAccountCharacter",
+            "relationshipName": "adventureSkill",
+            "otherEntityField": "name",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20200104143238",
+    "entityTableName": "adventure_account_character",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": [
+        "adventureUAA",
+        "adventureGateway",
+        "adventureCore"
+    ]
+}

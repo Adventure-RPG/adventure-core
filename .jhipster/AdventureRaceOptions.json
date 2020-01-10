@@ -1,0 +1,60 @@
+{
+    "name": "AdventureRaceOptions",
+    "fields": [
+        {
+            "fieldName": "height",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min"
+            ],
+            "fieldValidateRulesMin": 1
+        },
+        {
+            "fieldName": "weight",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min"
+            ],
+            "fieldValidateRulesMin": 1
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "adventureModelOptions",
+            "otherEntityRelationshipName": "adventureRaceOptions",
+            "relationshipName": "adventureModelOptions"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "adventureModel",
+            "otherEntityRelationshipName": "adventureRaceOptions",
+            "relationshipName": "adventureModel",
+            "otherEntityField": "name",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "adventureRace",
+            "otherEntityRelationshipName": "adventureRaceOptions",
+            "relationshipName": "adventureRace",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200104143241",
+    "entityTableName": "adventure_race_options",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": [
+        "adventureUAA",
+        "adventureGateway",
+        "adventureCore"
+    ]
+}

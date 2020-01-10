@@ -1,0 +1,44 @@
+{
+    "name": "AdventureModel",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "file",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "adventureCategoryType",
+            "otherEntityRelationshipName": "adventureModel",
+            "relationshipName": "adventureCategoryType"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "adventureRaceOptions",
+            "otherEntityRelationshipName": "adventureModel",
+            "relationshipName": "adventureRaceOptions",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20200104143242",
+    "entityTableName": "adventure_model",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": [
+        "adventureUAA",
+        "adventureGateway",
+        "adventureCore"
+    ]
+}
